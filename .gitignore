@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+*.spec
+
+# Pseudo runtime data
+.pseudo/
+
+# Docs (Next.js)
+docs/.next/
+docs/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
