@@ -107,8 +107,10 @@ jobs:
 
       - name: Flatten dist/
         run: |
-          find dist/ -type f -exec mv {} dist/ \;
-          find dist/ -type d -empty -delete
+          mkdir temp_dist
+          find dist/ -type f -exec mv {} temp_dist/ \;
+          rm -rf dist
+          mv temp_dist dist
           ls -lh dist/
 
       - name: Set executable bit on Unix binaries

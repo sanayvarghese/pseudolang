@@ -6,7 +6,7 @@
 
 **Write pseudocode. Actually run it.**
 
-[![PyPI version](https://img.shields.io/badge/pypi-v0.1.1-orange?style=flat-square)](https://pypi.org/project/runpseudo/)
+[![PyPI version](https://img.shields.io/badge/pypi-v0.1.2-orange?style=flat-square)](https://pypi.org/project/runpseudo/)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue?style=flat-square)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#)
@@ -119,7 +119,7 @@ All binaries available on [GitHub Releases](https://github.com/sanayvarghese/pse
 
 ```bash
 pseudo version
-# pseudo 0.1.1
+# pseudo 0.1.2
 ```
 
 ---

@@ -166,7 +166,7 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
         <CodeBlock
           code="pseudo version"
           lang="bash"
-          showOutput="pseudo 0.1.1"
+          showOutput="pseudo 0.1.2"
         />
 
         {/* ── Install via pip (optional) ── */}

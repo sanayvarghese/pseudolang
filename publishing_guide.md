@@ -118,8 +118,8 @@ python -m build
 
 This generates two files inside a new `dist/` folder:
 
-- A source archive: `dist/runpseudo-0.1.1.tar.gz`
-- A built wheel: `dist/runpseudo-0.1.1-py3-none-any.whl`
+- A source archive: `dist/runpseudo-0.1.2.tar.gz`
+- A built wheel: `dist/runpseudo-0.1.2-py3-none-any.whl`
 
 ### Step D: Upload to PyPI
 
@@ -142,16 +142,15 @@ pip install runpseudo
 
 ## 🤖 3. How the Automated GitHub Release Works
 
-We have configured a GitHub Actions workflow (`.github/workflows/release.yml`) to automatically compile and release executables for **Windows, macOS (Intel & Apple Silicon), and Linux** whenever you push a version tag.
+We have configured a GitHub Actions workflow (`.github/workflows/release.yml`) to automatically compile and release executables for **Windows, macOS (Universal), and Linux** whenever you push a version tag.
 
 ### The Release Workflow
 
-When you push a tag like `v0.1.1`:
+When you push a tag like `v0.1.2`:
 
 1. **Parallel Build Runners**:
    - `ubuntu-latest` compiles `pseudo-linux-x64`
-   - `macos-13` compiles `pseudo-macos-x64` (Intel Mac)
-   - `macos-latest` compiles `pseudo-macos-arm64` (Apple Silicon Mac)
+   - `macos-latest` compiles `pseudo-macos-universal` (Universal Mac binary)
    - `windows-latest` compiles `pseudo-windows-x64.exe` (Windows)
 2. **Smoke Test**: Each runner executes `pseudo version` to verify the compiled binary functions properly.
 3. **Draft Release**: Collects all 4 binaries, bundles them, and creates a release on your GitHub repository.
