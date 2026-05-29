@@ -18,18 +18,17 @@ jobs:
           - os: windows-latest
             asset_name: pseudo-windows-x64.exe
             sep: ";" # PyInstaller data separator (Windows)
+            extra_args: ""
 
-          - os: macos-13 # Intel x86_64
-            asset_name: pseudo-macos-x64
+          - os: macos-latest # Universal binary (Intel + Apple Silicon)
+            asset_name: pseudo-macos-universal
             sep: ":"
-
-          - os: macos-latest # Apple Silicon ARM64
-            asset_name: pseudo-macos-arm64
-            sep: ":"
+            extra_args: "--target-arch universal2"
 
           - os: ubuntu-latest
             asset_name: pseudo-linux-x64
             sep: ":"
+            extra_args: ""
 
     runs-on: ${{ matrix.os }}
 
@@ -54,6 +53,7 @@ jobs:
           pyinstaller
           --onefile
           --name pseudo
+          ${{ matrix.extra_args }}
           --add-data "pseudo/data/default.pmap${{ matrix.sep }}pseudo/data"
           --hidden-import pseudo
           --hidden-import pseudo.cli
@@ -113,9 +113,8 @@ jobs:
 
       - name: Set executable bit on Unix binaries
         run: |
-          chmod +x dist/pseudo-macos-x64   || true
-          chmod +x dist/pseudo-macos-arm64 || true
-          chmod +x dist/pseudo-linux-x64   || true
+          chmod +x dist/pseudo-macos-universal || true
+          chmod +x dist/pseudo-linux-x64       || true
 
       - name: Get version from tag
         id: ver
@@ -146,8 +145,7 @@ jobs:
             | Platform | File |
             |---|---|
             | 🪟 Windows x64 | `pseudo-windows-x64.exe` |
-            | 🍎 macOS Intel | `pseudo-macos-x64` |
-            | 🍎 macOS Apple Silicon | `pseudo-macos-arm64` |
+            | 🍎 macOS Universal | `pseudo-macos-universal` |
             | 🐧 Linux x64 | `pseudo-linux-x64` |
 
             ### pip (requires Python 3.8+)
@@ -156,8 +154,7 @@ jobs:
             ```
           files: |
             dist/pseudo-windows-x64.exe
-            dist/pseudo-macos-x64
-            dist/pseudo-macos-arm64
+            dist/pseudo-macos-universal
             dist/pseudo-linux-x64
           draft: false
           prerelease: false
