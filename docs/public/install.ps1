@@ -8,6 +8,9 @@ param(
     [switch]$Help
 )
 
+# Set console encoding to UTF-8 to render Unicode block characters correctly
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $ErrorActionPreference = "Stop"
 $REPO     = "sanayvarghese/pseudolang"
 $BIN_NAME = "pseudo.exe"

@@ -37,8 +37,7 @@ OS="$(uname -s)"; ARCH="$(uname -m)"
 case "$OS" in
   Darwin)
     case "$ARCH" in
-      arm64)  ASSET="pseudo-macos-arm64" ;;
-      x86_64) ASSET="pseudo-macos-x64"   ;;
+      arm64|x86_64) ASSET="pseudo-macos-universal" ;;
       *) error "Unsupported macOS arch: $ARCH" ;;
     esac ;;
   Linux)
