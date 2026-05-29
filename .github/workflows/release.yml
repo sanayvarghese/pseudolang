@@ -79,7 +79,7 @@ jobs:
 
       - name: Rename binary (Windows)
         if: runner.os == 'Windows'
-        run: Rename-Item dist\pseudo.exe dist\${{ matrix.asset_name }}
+        run: Move-Item dist\pseudo.exe dist\${{ matrix.asset_name }}
         shell: pwsh
 
       - name: Smoke test
