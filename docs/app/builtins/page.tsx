@@ -238,7 +238,7 @@ print upper(s)            # → HELLO, WORLD!
 print lower(s)            # → hello, world!
 parts = split(s, ", ")
 print parts               # → ["Hello", "World!"]
-print join(parts, " — ") # → Hello — World!`}
+print join(parts, " - ") # → Hello - World!`}
         />
 
         {/* Math */}
@@ -277,8 +277,8 @@ print join(parts, " — ") # → Hello — World!`}
                 ["gcd(a, b)", "Greatest common divisor", "gcd(12, 8) → 4"],
                 ["lcm(a, b)", "Least common multiple", "lcm(4, 6) → 12"],
                 ["factorial(n)", "n!", "factorial(5) → 120"],
-                ["pi", "Constant π = 3.14159...", "—"],
-                ["e", "Constant e = 2.71828...", "—"],
+                ["pi", "Constant π = 3.14159...", "-"],
+                ["e", "Constant e = 2.71828...", "-"],
               ].map(([fn, desc, ex]) => (
                 <tr key={String(fn)}>
                   <td>

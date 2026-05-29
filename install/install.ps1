@@ -22,7 +22,7 @@ function Print-Header {
     Write-Host "  ╚═╝     ╚══════╝╚══════╝ ╚═════╝ ╚═════╝  ╚═════╝ " -ForegroundColor Cyan
     Write-Host ""
     Write-Host "  Write pseudocode. Actually run it." -ForegroundColor Yellow
-    Write-Host "  No Python required — standalone binary." -ForegroundColor DarkGray
+    Write-Host "  No Python required - standalone binary." -ForegroundColor DarkGray
     Write-Host ""
 }
 
@@ -99,7 +99,7 @@ try {
     $ver = & $DestPath version 2>&1
     Info "Installed: $ver"
 } catch {
-    Warn "Binary is at $DestPath — open a new terminal and run: pseudo version"
+    Warn "Binary is at $DestPath - open a new terminal and run: pseudo version"
 }
 
 # ── Done ─────────────────────────────────────────────────────

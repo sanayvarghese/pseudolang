@@ -104,7 +104,7 @@ export default function QuickstartPage() {
         <h2>Auto-print Behavior</h2>
         <p>
           A bare expression or function call at any level automatically prints
-          its value — you don't need <code>print</code> everywhere:
+          its value - you don't need <code>print</code> everywhere:
         </p>
         <CodeBlock
           lang="pseudo"
@@ -121,11 +121,11 @@ len(arr)   # → prints 3`}
           {[
             {
               title: "Indentation defines blocks",
-              desc: "The only strict rule. Spaces or tabs — consistent within a file.",
+              desc: "The only strict rule. Spaces or tabs - consistent within a file.",
             },
             {
               title: "Flexible keywords",
-              desc: "if / when / check / given — all work. Defined by the .pmap file.",
+              desc: "if / when / check / given - all work. Defined by the .pmap file.",
             },
             {
               title: "Dynamic typing",

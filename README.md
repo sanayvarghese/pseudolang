@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#)
 
-Pseudo is a programming language that sits between English prose and real code. It lets you write flexible, natural-language-style pseudocode and **actually execute it** — perfect for coding interviews, algorithm education, and rapid idea verification.
+Pseudo is a programming language that sits between English prose and real code. It lets you write flexible, natural-language-style pseudocode and **actually execute it** - perfect for coding interviews, algorithm education, and rapid idea verification.
 
 [📦 Installation](#-installation) · [⚡ Quick Start](#-quick-start) · [🗺 PMAP System](#-the-pmap-system) · [🛠 CLI Reference](#-cli-reference) · [📚 Examples](#-examples) · [🏗 Architecture](#-architecture)
 
@@ -23,24 +23,24 @@ Pseudo is a programming language that sits between English prose and real code. 
 
 Pseudo is **not** a replacement for Python, Java, or any production language. It's a tool for:
 
-- ✅ **Coding interviews** — write and verify your algorithm before whiteboarding
-- ✅ **Algorithm education** — step through execution line-by-line
-- ✅ **Teaching** — show how data structures work with built-in visualizations
-- ✅ **Quick idea verification** — turn a mental model into runnable code fast
+- ✅ **Coding interviews** - write and verify your algorithm before whiteboarding
+- ✅ **Algorithm education** - step through execution line-by-line
+- ✅ **Teaching** - show how data structures work with built-in visualizations
+- ✅ **Quick idea verification** - turn a mental model into runnable code fast
 
 ```
-100% English prose ←——————— Pseudo ———————→ Real programming language
+100% English prose ←------- Pseudo -------→ Real programming language
 "Sort the array"                 ↑               for(int i=0; i<n; i++){...}
 ```
 
-Pseudo leans toward programming syntax, not pure prose — but the exact keywords you use are **fully customizable** via `.pmap` mapping files.
+Pseudo leans toward programming syntax, not pure prose - but the exact keywords you use are **fully customizable** via `.pmap` mapping files.
 
 ---
 
 ## 📦 Installation
 
 > 📦 **Pseudo ships as a standalone binary.** No Python, no pip, no runtime needed.
-> The executable bundles everything inside — just download and run.
+> The executable bundles everything inside - just download and run.
 
 ---
 
@@ -124,7 +124,7 @@ pseudo version
 
 ---
 
-### Alternative — pip _(requires Python 3.8+)_
+### Alternative - pip _(requires Python 3.8+)_
 
 If you already have Python installed:
 
@@ -145,7 +145,7 @@ pseudo init
 
 This creates:
 
-- `pseudo.config` — local project config pointing to your `.pmap`
+- `pseudo.config` - local project config pointing to your `.pmap`
 - A new `.pmap` file at the path you specify (with `@inherit default.pmap` scaffolded)
 
 ### What Gets Created on First Run
@@ -169,10 +169,10 @@ On first execution, Pseudo creates a home directory at `~/.pseudo/`:
 | Extension | Use                               |
 | --------- | --------------------------------- |
 | `.pseudo` | Primary source file               |
-| `.psu`    | Short alias — identical behavior  |
+| `.psu`    | Short alias - identical behavior  |
 | `.pmap`   | Mapping/language definition file  |
-| `.pseudo` | ❌ Error — common misspelling     |
-| `.py`     | ❌ Error — that looks like Python |
+| `.pseudo` | ❌ Error - common misspelling     |
+| `.py`     | ❌ Error - that looks like Python |
 
 ---
 
@@ -220,7 +220,7 @@ The `--step` flag pauses at each line and prints the full variable state. Perfec
 
 ### Auto-print Behavior
 
-A bare expression or function call at any indent level **automatically prints** its value — no `print` required everywhere:
+A bare expression or function call at any indent level **automatically prints** its value - no `print` required everywhere:
 
 ```pseudo
 x = 42
@@ -246,18 +246,18 @@ len(arr)    # → prints 3
 
 ---
 
-### `pseudo run` — All Flags
+### `pseudo run` - All Flags
 
 | Flag              | Type        | Default    | Description                                                           |
 | ----------------- | ----------- | ---------- | --------------------------------------------------------------------- |
-| `--lang <file>`   | path        | —          | Use a specific `.pmap` instead of auto-detected                       |
-| `-i <input>`      | string/file | —          | Inline input or input file (repeatable). Use `\n` for multiple values |
+| `--lang <file>`   | path        | -          | Use a specific `.pmap` instead of auto-detected                       |
+| `-i <input>`      | string/file | -          | Inline input or input file (repeatable). Use `\n` for multiple values |
 | `--analyze`       | flag        | off        | Show Big-O complexity analysis after run                              |
 | `--explain`       | flag        | off        | With `--analyze`: show reasoning for complexity                       |
 | `--summary`       | flag        | off        | With `--analyze`: one-line output                                     |
 | `--timeout <N>`   | float       | 5.0        | Execution timeout in seconds (`0` = unlimited)                        |
 | `--max-iter <N>`  | int         | 10,000,000 | Maximum loop iterations before halting                                |
-| `--dry-run`       | flag        | off        | Show mapping resolution — do not execute                              |
+| `--dry-run`       | flag        | off        | Show mapping resolution - do not execute                              |
 | `--step`          | flag        | off        | Step through line-by-line (educational debugger)                      |
 | `--no-auto-print` | flag        | off        | Disable automatic printing of standalone expressions                  |
 
@@ -286,7 +286,7 @@ pseudo run algo.pseudo --lang custom.pmap
 pseudo run algo.pseudo --lang ~/my_lang.pmap
 ```
 
-**Dry run — inspect pattern mapping:**
+**Dry run - inspect pattern mapping:**
 
 ```bash
 pseudo run sort.pseudo --dry-run
@@ -351,21 +351,21 @@ pseudo validate custom.pmap
 
 When running a file, Pseudo picks the `.pmap` to use in this order:
 
-1. **`--lang` flag** — explicitly specified pmap wins
-2. **`pseudo.config`** — local project config in the current directory
-3. **`~/.pseudo/custom/custom.pmap`** — your global custom pmap
-4. **`~/.pseudo/core/default.pmap`** — the bundled default (English)
+1. **`--lang` flag** - explicitly specified pmap wins
+2. **`pseudo.config`** - local project config in the current directory
+3. **`~/.pseudo/custom/custom.pmap`** - your global custom pmap
+4. **`~/.pseudo/core/default.pmap`** - the bundled default (English)
 
 ---
 
 ## 🗺 The PMAP System
 
-The `.pmap` file is the bridge between **any writing style** and Pseudo's internal canonical structures. It is a **data file**, not code — it maps text patterns to canonical structure names.
+The `.pmap` file is the bridge between **any writing style** and Pseudo's internal canonical structures. It is a **data file**, not code - it maps text patterns to canonical structure names.
 
 ### How It Works
 
 1. Source line tokens are looked up in a **prefix trie** keyed by the first literal word
-2. Only patterns sharing that first token are tested — **O(1) lookup**
+2. Only patterns sharing that first token are tested - **O(1) lookup**
 3. Each pattern is matched left-to-right: literals must match exactly, placeholders consume tokens greedily
 4. Most specific patterns (most literal tokens) are tried first automatically
 5. The compiled trie is **cached** (`SHA256` hash-invalidated) as `.pmap.cache`
@@ -384,7 +384,7 @@ The `.pmap` file is the bridge between **any writing style** and Pseudo's intern
 
 ### Canonical Internal Structures
 
-These are fixed — built into the compiler. The `.pmap` file maps your syntax to these:
+These are fixed - built into the compiler. The `.pmap` file maps your syntax to these:
 
 | Canonical                   | Meaning                           |
 | --------------------------- | --------------------------------- |
@@ -623,7 +623,7 @@ fib(30)
 # 832040
 ```
 
-### BFS — Breadth-First Search
+### BFS - Breadth-First Search
 
 ```pseudo
 func bfs(graph, start)
@@ -651,7 +651,7 @@ bfs(g, 1)
 # [1, 2, 3, 4]
 ```
 
-### Two Sum (HashMap — O(n))
+### Two Sum (HashMap - O(n))
 
 ```pseudo
 func twoSum(nums, target)
@@ -716,7 +716,7 @@ Source (.pseudo)
 1. Indentation Parser      → parse_indentation() / build_block_tree()
       │                       Handles tab/space, inline colon blocks (if x: print)
       ▼
-2. Pass 1 — Registration   → run_registration_pass()
+2. Pass 1 - Registration   → run_registration_pass()
       │                       Scans entire file for function/variable definitions
       │                       Builds symbol table BEFORE any execution
       ▼
@@ -725,7 +725,7 @@ Source (.pseudo)
       │                       Handles @inherit, @replace, @context
       │                       Cache: SHA256 hash invalidation
       ▼
-4. Pass 2 — Resolver       → MappingResolver.resolve_blocks()
+4. Pass 2 - Resolver       → MappingResolver.resolve_blocks()
       │                       Matches each line against trie patterns
       │                       Parses expressions via recursive descent
       │                       Builds canonical AST (ProgramNode)
@@ -750,28 +750,28 @@ Pseudo uses two passes to support mutual recursion and forward references:
 
 | Pass                      | What it does                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Pass 1** — Registration | Scans the entire file. Registers all function names and global variables into the symbol table. No execution, no `.pmap` matching. |
-| **Pass 2** — Resolver     | With the full symbol table available, resolves every line via `.pmap` pattern matching and builds the canonical AST.               |
+| **Pass 1** - Registration | Scans the entire file. Registers all function names and global variables into the symbol table. No execution, no `.pmap` matching. |
+| **Pass 2** - Resolver     | With the full symbol table available, resolves every line via `.pmap` pattern matching and builds the canonical AST.               |
 
 ### Scope Chain
 
 The interpreter maintains a chain of `Scope` objects:
 
-- **Global scope** — top-level variables and functions
-- **Local scope** — created per function call; parent is always global
+- **Global scope** - top-level variables and functions
+- **Local scope** - created per function call; parent is always global
 - Reads walk up the chain; writes stay local unless `global` is declared
 - Recursion limit: **1,000 call stack depth**
 
 ### Prefix Trie + Cache
 
-All patterns are compiled into a prefix trie keyed by the first literal token. For a line starting with `for`, only patterns starting with `for` are tested — **O(1) trie lookup**, then **O(small subset)** linear pattern check. The compiled trie is cached as `.pmap.cache` and automatically invalidated when the `.pmap` SHA256 hash changes.
+All patterns are compiled into a prefix trie keyed by the first literal token. For a line starting with `for`, only patterns starting with `for` are tested - **O(1) trie lookup**, then **O(small subset)** linear pattern check. The compiled trie is cached as `.pmap.cache` and automatically invalidated when the `.pmap` SHA256 hash changes.
 
 ### File Map
 
 | File                                | Purpose                              | ~Lines |
 | ----------------------------------- | ------------------------------------ | ------ |
 | `pseudo/__init__.py`                | Package entry, version export        | 4      |
-| `pseudo/parser/tokenizer.py`        | Lexer — character → tokens           | 266    |
+| `pseudo/parser/tokenizer.py`        | Lexer - character → tokens           | 266    |
 | `pseudo/parser/normalizer.py`       | Whitespace normalization             | 56     |
 | `pseudo/parser/indent_parser.py`    | Indentation + block tree             | 300    |
 | `pseudo/parser/ast_nodes.py`        | All AST dataclass definitions        | 293    |
@@ -794,7 +794,7 @@ All patterns are compiled into a prefix trie keyed by the first literal token. F
 
 ### The Only Strict Rule: Indentation
 
-Indentation defines code blocks. Use spaces or tabs — but be **consistent within a file**. Inline colon syntax is also supported:
+Indentation defines code blocks. Use spaces or tabs - but be **consistent within a file**. Inline colon syntax is also supported:
 
 ```pseudo
 # Block form
@@ -859,7 +859,7 @@ pseudo init
 # Creates pseudo.config + custom.pmap in the current directory
 ```
 
-**Example — adding a `go through` loop:**
+**Example - adding a `go through` loop:**
 
 ```text
 @pmap-version 1.0
@@ -890,7 +890,7 @@ Now `go through i from 0 to 10` and `yell result` work in your project.
 
 ## 🏭 Building & Releasing
 
-Binaries for all platforms are built automatically by **GitHub Actions** when a version tag is pushed. There is no cross-compilation — each platform's runner builds its own native binary.
+Binaries for all platforms are built automatically by **GitHub Actions** when a version tag is pushed. There is no cross-compilation - each platform's runner builds its own native binary.
 
 ### How to release a new version
 
@@ -910,7 +910,7 @@ The workflow (`.github/workflows/release.yml`) then:
 | Step            | What happens                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------------- |
 | **Build** (×4)  | Runs in parallel on `windows-latest`, `macos-13` (Intel), `macos-latest` (ARM64), `ubuntu-latest` |
-| **PyInstaller** | Each runner builds a self-contained binary — Python runtime bundled inside                        |
+| **PyInstaller** | Each runner builds a self-contained binary - Python runtime bundled inside                        |
 | **Smoke test**  | Each binary runs `pseudo version` to confirm it works                                             |
 | **Release**     | Creates a GitHub Release with all 4 binaries attached                                             |
 

@@ -9,7 +9,7 @@ const PIPELINE = `Source (.pseudo)
 1. Indentation Parser      → parse_indentation() / build_block_tree()
       │                       Handles tab/space, inline colon blocks
       ▼
-2. Pass 1 — Registration   → run_registration_pass()
+2. Pass 1 - Registration   → run_registration_pass()
       │                       Scans for function/variable definitions
       │                       Builds symbol table before execution
       ▼
@@ -18,7 +18,7 @@ const PIPELINE = `Source (.pseudo)
       │                       Handles @inherit, @replace, @context
       │                       Cache: SHA256 hash invalidation
       ▼
-4. Pass 2 — Resolver       → MappingResolver.resolve_blocks()
+4. Pass 2 - Resolver       → MappingResolver.resolve_blocks()
       │                       Matches each line against trie patterns
       │                       Parses expressions via recursive descent
       │                       Builds canonical AST (ProgramNode)
@@ -83,7 +83,7 @@ export default function ArchitecturePage() {
                 ["pseudo/__init__.py", "Package entry, version export", "4"],
                 [
                   "pseudo/parser/tokenizer.py",
-                  "Lexer — character → tokens",
+                  "Lexer - character → tokens",
                   "266",
                 ],
                 [
@@ -184,7 +184,7 @@ export default function ArchitecturePage() {
             <tbody>
               <tr>
                 <td>
-                  <strong>Pass 1</strong> — Registration
+                  <strong>Pass 1</strong> - Registration
                 </td>
                 <td>
                   Scans the entire file. Registers all function names and global
@@ -194,7 +194,7 @@ export default function ArchitecturePage() {
               </tr>
               <tr>
                 <td>
-                  <strong>Pass 2</strong> — Resolver
+                  <strong>Pass 2</strong> - Resolver
                 </td>
                 <td>
                   With the full symbol table available, resolves every line via
@@ -209,7 +209,7 @@ export default function ArchitecturePage() {
         <p>
           All patterns are compiled into a prefix trie keyed by the first
           literal token. For a line starting with <code>for</code>, only
-          patterns that start with <code>for</code> are tested —{" "}
+          patterns that start with <code>for</code> are tested -{" "}
           <strong>O(1)</strong> lookup, then <strong>O(small subset)</strong>{" "}
           pattern check.
         </p>

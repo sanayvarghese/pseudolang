@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Pseudo — Documentation", template: "%s · Pseudo" },
+  title: { default: "Pseudo - Documentation", template: "%s · Pseudo" },
   description:
-    "Official documentation for Pseudo — run pseudocode as a real language.",
+    "Official documentation for Pseudo - run pseudocode as a real language.",
   metadataBase: new URL("https://pseudo.wiki"),
   icons: { icon: "/icon.png" },
   openGraph: {

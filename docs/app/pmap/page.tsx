@@ -48,7 +48,7 @@ export default function PmapPage() {
 
         <h2>Canonical Internal Structures</h2>
         <p>
-          These are fixed — they never change. They are the core of Pseudo,
+          These are fixed - they never change. They are the core of Pseudo,
           built into the compiler:
         </p>
         <div className="table-wrap">
@@ -65,7 +65,7 @@ export default function PmapPage() {
                 ["FOR_LOOP", "Counted iteration with variable"],
                 ["FOR_EACH", "Element iteration over collection"],
                 ["WHILE_LOOP", "Condition-based loop"],
-                ["UNTIL_LOOP", "Inverted while — loop until condition true"],
+                ["UNTIL_LOOP", "Inverted while - loop until condition true"],
                 ["IF", "Condition check"],
                 ["ELSE_IF", "Chained condition"],
                 ["ELSE", "Fallback block"],
@@ -91,7 +91,7 @@ export default function PmapPage() {
           </table>
         </div>
 
-        <h2>Pattern Matching — No Regex</h2>
+        <h2>Pattern Matching - No Regex</h2>
         <p>
           Pattern matching uses a custom token matcher, not regex. This prevents
           catastrophic backtracking entirely.
@@ -124,10 +124,10 @@ export default function PmapPage() {
         </p>
         <CodeBlock
           lang="text"
-          code={`# specificity = 4 (for, from, to, step) — tried first
+          code={`# specificity = 4 (for, from, to, step) - tried first
 for {var:name} from {start:expr} to {end:expr} step {step:expr}
 
-# specificity = 3 (for, from, to) — tried second
+# specificity = 3 (for, from, to) - tried second
 for {var:name} from {start:expr} to {end:expr}`}
         />
 
@@ -225,23 +225,23 @@ for {var:name} from {start:expr} to {end:expr}`}
         <ol style={{ color: "var(--fg-muted)" }}>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>@inherit chain</strong>{" "}
-            — custom.pmap → default.pmap → core
+            - custom.pmap → default.pmap → core
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>
               Expression fallback
             </strong>{" "}
-            — try expression evaluator if operators/calls found
+            - try expression evaluator if operators/calls found
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>
               Name resolution
             </strong>{" "}
-            — single identifier → look up → auto-print or NameError
+            - single identifier → look up → auto-print or NameError
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>Helpful error</strong>{" "}
-            — suggests matching patterns
+            - suggests matching patterns
           </li>
         </ol>
 
@@ -249,7 +249,7 @@ for {var:name} from {start:expr} to {end:expr}`}
         <p>
           For performance, Pseudo builds a prefix trie from the first literal
           token of each pattern. Only patterns starting with the same token as
-          the input line are checked — <code>O(1)</code> trie lookup +{" "}
+          the input line are checked - <code>O(1)</code> trie lookup +{" "}
           <code>O(small subset)</code> pattern check.
         </p>
         <p>

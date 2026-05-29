@@ -147,7 +147,7 @@ export default function ExamplesPage() {
           <span className="page-label">Examples</span>
           <h1 className="page-title">Code Examples</h1>
           <p className="page-desc">
-            Real algorithms written in Pseudo — from sorting to graph traversal.
+            Real algorithms written in Pseudo - from sorting to graph traversal.
           </p>
         </div>
 
@@ -186,7 +186,7 @@ export default function ExamplesPage() {
           showOutput="true"
         />
 
-        <h2>BFS — Breadth-First Search</h2>
+        <h2>BFS - Breadth-First Search</h2>
         <CodeBlock
           code={BFS}
           lang="pseudo"
@@ -202,11 +202,11 @@ export default function ExamplesPage() {
           showOutput="[0, 1]"
         />
         <p>
-          Indices 0 and 1 (<code>2 + 7 = 9</code>) — O(n) solution using a
+          Indices 0 and 1 (<code>2 + 7 = 9</code>) - O(n) solution using a
           HashMap.
         </p>
 
-        <h2>Binary Tree — In-order Traversal</h2>
+        <h2>Binary Tree - In-order Traversal</h2>
         <CodeBlock
           code={TREE_TRAVERSAL}
           lang="pseudo"

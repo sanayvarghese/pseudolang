@@ -85,8 +85,8 @@ as, is, then, loop, repeat, function, func, define, def, procedure`}
         <CodeBlock
           lang="pseudo"
           code={`for i from 0 to n step 2
-#         ↑──────↑ start:expr = "0" — stops at "to"
-#                    ↑ end:expr = "n" — stops at "step"
+#         ↑──────↑ start:expr = "0" - stops at "to"
+#                    ↑ end:expr = "n" - stops at "step"
 #                           ↑ step:expr = "2"`}
         />
 
@@ -102,7 +102,7 @@ as, is, then, loop, repeat, function, func, define, def, procedure`}
         <CodeBlock
           lang="pseudo"
           code={`$input("Enter name:") as string
-#             ↑─────↑ prompt:any = "Enter name:" — stops at )
+#             ↑─────↑ prompt:any = "Enter name:" - stops at )
 #                        ↑ type:word = "string"`}
         />
 

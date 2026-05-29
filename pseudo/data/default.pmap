@@ -1,0 +1,162 @@
+@pmap-version 1.0
+@pseudo-version >=1.0 <2.0
+@language "English"
+@author "Sanay George Varghese"
+
+[FUNC_DEF]
+func {name:name}({args:any})
+function {name:name}({args:any})
+define {name:name}({args:any})
+def {name:name}({args:any})
+procedure {name:name}({args:any})
+method {name:name}({args:any})
+algorithm {name:name}({args:any})
+recursive {name:name}({args:any})
+helper {name:name}({args:any})
+
+[FOR_LOOP]
+for {var:name} from {start:expr} to {end:expr} step {step:expr}
+for {var:name} from {start:expr} to {end:expr}
+loop {var:name} from {start:expr} to {end:expr}
+repeat {var:name} from {start:expr} to {end:expr}
+iterate {var:name} from {start:expr} to {end:expr}
+
+[FOR_EACH]
+for each {item:name} in {collection:expr}
+for every {item:name} in {collection:expr}
+for {item:name} in {collection:expr}
+foreach {item:name} in {collection:expr}
+loop through {collection:expr} as {item:name}
+traverse {collection:expr} as {item:name}
+
+[WHILE_LOOP]
+while {condition:expr}
+keep going while {condition:expr}
+as long as {condition:expr}
+loop while {condition:expr}
+repeat while {condition:expr}
+
+[UNTIL_LOOP]
+until {condition:expr}
+repeat until {condition:expr}
+loop until {condition:expr}
+
+[IF]
+@context TOP_LEVEL FUNCTION_BODY LOOP_BODY IF_BODY
+if {condition:expr}
+when {condition:expr}
+check {condition:expr}
+given {condition:expr}
+
+[ELSE_IF]
+else if {condition:expr}
+elif {condition:expr}
+otherwise when {condition:expr}
+or if {condition:expr}
+
+[ELSE]
+else
+otherwise
+if not
+
+[RETURN]
+return {value:expr}
+give back {value:expr}
+output {value:expr}
+send back {value:expr}
+return
+give back
+
+[BREAK]
+break
+stop
+exit loop
+stop loop
+
+[CONTINUE]
+continue
+skip
+next
+skip to next
+
+[PRINT]
+print {value:expr}
+show {value:expr}
+display {value:expr}
+say {value:expr}
+write {value:expr}
+
+[INPUT]
+$input
+$input as {type:word}
+$input({prompt:any})
+$input({prompt:any}) as {type:word}
+
+[TRY]
+try
+attempt
+
+[CATCH]
+catch {error:name}
+except {error:name}
+catch
+except
+if error {error:name}
+on error {error:name}
+on fail {error:name}
+if fails
+
+[FINALLY]
+finally
+always
+cleanup
+
+[RAISE]
+raise {error:any}
+throw {error:any}
+error {error:any}
+
+[GLOBAL]
+global {var:name}
+
+[COMMENT]
+# {text:any}
+
+[ASSIGN]
+@context TOP_LEVEL FUNCTION_BODY LOOP_BODY IF_BODY
+{var:name} = {value:expr}
+{var:name} := {value:expr}
+{var:name} <- {value:expr}
+set {var:name} to {value:expr}
+let {var:name} be {value:expr}
+store {value:expr} in {var:name}
+{var:name} is {value:expr}
+
+[EQUALITY]
+@context CONDITION
+{a:expr} == {b:expr}
+{a:expr} equals {b:expr}
+{a:expr} is equal to {b:expr}
+{a:expr} same as {b:expr}
+{a:expr} is {b:expr}
+
+[AND]
+{a:expr} and {b:expr}
+{a:expr} && {b:expr}
+both {a:expr} and {b:expr}
+
+[OR]
+{a:expr} or {b:expr}
+{a:expr} || {b:expr}
+either {a:expr} or {b:expr}
+
+[NOT]
+not {a:expr}
+! {a:expr}
+isnt {a:expr}
+
+[SWAP]
+swap {a:expr} and {b:expr}
+swap {a:expr}, {b:expr}
+exchange {a:expr} and {b:expr}
+exchange {a:expr}, {b:expr}

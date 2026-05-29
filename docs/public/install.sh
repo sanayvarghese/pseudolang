@@ -22,7 +22,7 @@ print_header() {
   printf "${CYAN}  ╚═╝     ╚══════╝╚══════╝ ╚═════╝ ╚═════╝  ╚═════╝ ${RESET}\n"
   printf "\n"
   printf "${YELLOW}  Write pseudocode. Actually run it.${RESET}\n"
-  printf "${DIM}  No Python required — standalone binary.${RESET}\n\n"
+  printf "${DIM}  No Python required - standalone binary.${RESET}\n\n"
 }
 
 step()  { printf "${GREEN}  [*]${RESET} %s\n" "$1"; }
@@ -111,7 +111,7 @@ step "Verifying..."
 if VER=$("$DEST" version 2>/dev/null); then
   info "Installed: $VER"
 else
-  warn "Binary is at $DEST — try: $DEST version"
+  warn "Binary is at $DEST - try: $DEST version"
 fi
 
 # ── Done ─────────────────────────────────────────────────────

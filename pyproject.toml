@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "runpseudo"
+version = "0.1.1"
+description = "A programming language for writing and running pseudocode"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["pseudocode", "language", "algorithm", "education"]
+
+[project.urls]
+Homepage = "https://pseudo.wiki"
+Repository = "https://github.com/sanayvarghese/pseudolang"
+Issues = "https://github.com/sanayvarghese/pseudolang/issues"
+
+[project.scripts]
+pseudo = "pseudo.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pseudo*"]
+
+[tool.setuptools.package-data]
+pseudo = ["data/*.pmap"]

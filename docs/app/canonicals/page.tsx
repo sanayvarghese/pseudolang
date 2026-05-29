@@ -128,7 +128,7 @@ export default function CanonicalsPage() {
           <span className="page-label">Language Reference</span>
           <h1 className="page-title">Canonical Structures</h1>
           <p className="page-desc">
-            The fixed internal structures of Pseudo. These never change — only
+            The fixed internal structures of Pseudo. These never change - only
             the surface syntax is customizable via <code>.pmap</code>.
           </p>
         </div>

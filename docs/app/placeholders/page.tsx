@@ -33,7 +33,7 @@ export default function PlaceholdersPage() {
 
         {/* name */}
         <h2>
-          <code>{"{var:name}"}</code> — Single Identifier
+          <code>{"{var:name}"}</code> - Single Identifier
         </h2>
         <p>
           Matches a <strong>single word</strong> that is a valid identifier.
@@ -75,10 +75,10 @@ export default function PlaceholdersPage() {
 
         {/* expr */}
         <h2>
-          <code>{"{value:expr}"}</code> — Full Expression
+          <code>{"{value:expr}"}</code> - Full Expression
         </h2>
         <p>
-          Greedy — collects tokens until a stop-token, keyword, end of line, or
+          Greedy - collects tokens until a stop-token, keyword, end of line, or
           bracket closes.
         </p>
         <div className="table-wrap">
@@ -111,7 +111,7 @@ print len(arr) - 1
 
         {/* number */}
         <h2>
-          <code>{"{n:number}"}</code> — Numeric Literal Only
+          <code>{"{n:number}"}</code> - Numeric Literal Only
         </h2>
         <p>
           Accepts only a numeric literal. Rejects expressions, variables, and
@@ -148,7 +148,7 @@ for {var:name} from {start:expr} to {end:expr} step {step:expr}
 
         {/* condition */}
         <h2>
-          <code>{"{condition:expr}"}</code> — Boolean Expression
+          <code>{"{condition:expr}"}</code> - Boolean Expression
         </h2>
         <p>
           Same as <code>:expr</code> but semantically signals a boolean context.
@@ -165,7 +165,7 @@ while arr[i] == target
 
         {/* type */}
         <h2>
-          <code>{"{type:word}"}</code> — Single Type Keyword
+          <code>{"{type:word}"}</code> - Single Type Keyword
         </h2>
         <p>
           Matches a single keyword indicating a type. Used with{" "}
@@ -200,7 +200,7 @@ $input("Enter age:") as int
 
         {/* collection */}
         <h2>
-          <code>{"{collection:expr}"}</code> — Iterable Expression
+          <code>{"{collection:expr}"}</code> - Iterable Expression
         </h2>
         <p>
           Anything that resolves to an iterable. Functionally identical to{" "}
@@ -220,7 +220,7 @@ loop through range(10) as i
 
         {/* any */}
         <h2>
-          <code>{"{text:any}"}</code> — Everything to End of Line
+          <code>{"{text:any}"}</code> - Everything to End of Line
         </h2>
         <p>
           Matches <em>everything remaining</em> on the line as a raw string.

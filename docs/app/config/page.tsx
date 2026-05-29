@@ -32,7 +32,7 @@ export default function ConfigPage() {
         <h2>What is pseudo.config?</h2>
         <p>
           A <code>pseudo.config</code> file in your current working directory
-          tells Pseudo which <code>.pmap</code> file to use automatically —
+          tells Pseudo which <code>.pmap</code> file to use automatically -
           without needing to pass <code>--lang</code> every time.
         </p>
 
@@ -47,17 +47,17 @@ export default function ConfigPage() {
           The <code>pmap</code> value is resolved in this order:
         </p>
         <ol style={{ color: "var(--fg-muted)" }}>
-          <li>Absolute path — used as-is</li>
-          <li>Relative path — resolved from current working directory</li>
+          <li>Absolute path - used as-is</li>
+          <li>Relative path - resolved from current working directory</li>
           <li>
-            <code>~/.pseudo/custom/</code> — looked up by name
+            <code>~/.pseudo/custom/</code> - looked up by name
           </li>
         </ol>
 
         <CodeBlock
           code={CONFIG_ALT}
           lang="json"
-          title="pseudo.config — absolute path"
+          title="pseudo.config - absolute path"
         />
 
         <h2>Creating via pseudo init</h2>
@@ -117,14 +117,14 @@ export default function ConfigPage() {
             <strong>Tip</strong>
             Use <code>pseudo.config</code> at the root of a project to lock in a
             specific language style for all <code>.pseudo</code> files in that
-            directory — no flags needed.
+            directory - no flags needed.
           </div>
         </div>
 
         <h2>Alternative: .pseudorc</h2>
         <p>
           Pseudo also reads <code>.pseudorc</code> as an alternative to{" "}
-          <code>pseudo.config</code>. Both formats are accepted — the first one
+          <code>pseudo.config</code>. Both formats are accepted - the first one
           found is used.
         </p>
       </div>

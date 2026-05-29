@@ -70,7 +70,7 @@ export default function CliPage() {
           </table>
         </div>
 
-        <h2>pseudo run — Flags</h2>
+        <h2>pseudo run - Flags</h2>
         <div className="table-wrap">
           <table>
             <thead>
@@ -86,13 +86,13 @@ export default function CliPage() {
                 [
                   "--lang <file>",
                   "path",
-                  "—",
+                  "-",
                   "Use a specific .pmap file instead of auto-detected",
                 ],
                 [
                   "-i <input>",
                   "string/file",
-                  "—",
+                  "-",
                   "Inline input or input file (repeatable). Use \\n for multiple values",
                 ],
                 [
@@ -124,7 +124,7 @@ export default function CliPage() {
                   "--dry-run",
                   "flag",
                   "off",
-                  "Show mapping resolution — do not execute",
+                  "Show mapping resolution - do not execute",
                 ],
                 [
                   "--step",
@@ -175,7 +175,7 @@ pseudo run greet.pseudo -i inputs.txt    # from file`}
 pseudo run algo.pseudo --lang ~/my_lang.pmap`}
         />
 
-        <h3>Dry run — inspect mapping</h3>
+        <h3>Dry run - inspect mapping</h3>
         <CodeBlock
           lang="bash"
           code="pseudo run sort.pseudo --dry-run"
@@ -227,24 +227,24 @@ pseudo explain --list FOR_LOOP`}
         </p>
         <ol style={{ color: "var(--fg-muted)" }}>
           <li>
-            <strong style={{ color: "var(--fg-light)" }}>--lang flag</strong> —
+            <strong style={{ color: "var(--fg-light)" }}>--lang flag</strong> -
             explicitly specified pmap wins
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>pseudo.config</strong>{" "}
-            — local project config in current directory
+            - local project config in current directory
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>
               ~/.pseudo/custom/custom.pmap
             </strong>{" "}
-            — your global custom pmap
+            - your global custom pmap
           </li>
           <li>
             <strong style={{ color: "var(--fg-light)" }}>
               ~/.pseudo/core/default.pmap
             </strong>{" "}
-            — the bundled default (English)
+            - the bundled default (English)
           </li>
         </ol>
       </div>

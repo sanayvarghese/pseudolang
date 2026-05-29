@@ -1,0 +1,163 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # git tag v1.0.1 && git push --tags
+
+permissions:
+  contents: write
+
+jobs:
+  # ── Build on all four runners in parallel ───────────────────
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            asset_name: pseudo-windows-x64.exe
+            sep: ";" # PyInstaller data separator (Windows)
+
+          - os: macos-13 # Intel x86_64
+            asset_name: pseudo-macos-x64
+            sep: ":"
+
+          - os: macos-latest # Apple Silicon ARM64
+            asset_name: pseudo-macos-arm64
+            sep: ":"
+
+          - os: ubuntu-latest
+            asset_name: pseudo-linux-x64
+            sep: ":"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install -e .
+
+      - name: Build with PyInstaller
+        # Runs from repo root (pseudolang/).
+        # The Python package lives in pseudo/ subfolder.
+        # Data file: pseudo/data/default.pmap → bundled at pseudo/data inside exe.
+        run: >
+          pyinstaller
+          --onefile
+          --name pseudo
+          --add-data "pseudo/data/default.pmap${{ matrix.sep }}pseudo/data"
+          --hidden-import pseudo
+          --hidden-import pseudo.cli
+          --hidden-import pseudo.compiler
+          --hidden-import pseudo.install
+          --hidden-import pseudo.parser.tokenizer
+          --hidden-import pseudo.parser.normalizer
+          --hidden-import pseudo.parser.indent_parser
+          --hidden-import pseudo.parser.ast_nodes
+          --hidden-import pseudo.parser.expr_parser
+          --hidden-import pseudo.resolver.pmap_loader
+          --hidden-import pseudo.resolver.pass1_register
+          --hidden-import pseudo.resolver.pass2_resolver
+          --hidden-import pseudo.analyzer.semantic
+          --hidden-import pseudo.analyzer.complexity
+          --hidden-import pseudo.interpreter.interpreter
+          --hidden-import pseudo.interpreter.builtins_ds
+          pseudo_entry.py
+
+      - name: Rename binary (Unix)
+        if: runner.os != 'Windows'
+        run: mv dist/pseudo dist/${{ matrix.asset_name }}
+
+      - name: Rename binary (Windows)
+        if: runner.os == 'Windows'
+        run: Rename-Item dist\pseudo.exe dist\${{ matrix.asset_name }}
+        shell: pwsh
+
+      - name: Smoke test
+        run: dist/${{ matrix.asset_name }} version
+        shell: bash
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset_name }}
+          path: dist/${{ matrix.asset_name }}
+          retention-days: 1
+
+  # ── Create GitHub Release with all four binaries ─────────────
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+
+      - name: Flatten dist/
+        run: |
+          find dist/ -type f -exec mv {} dist/ \;
+          find dist/ -type d -empty -delete
+          ls -lh dist/
+
+      - name: Set executable bit on Unix binaries
+        run: |
+          chmod +x dist/pseudo-macos-x64   || true
+          chmod +x dist/pseudo-macos-arm64 || true
+          chmod +x dist/pseudo-linux-x64   || true
+
+      - name: Get version from tag
+        id: ver
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.VERSION }}
+          name: "Pseudo ${{ steps.ver.outputs.VERSION }}"
+          body: |
+            ## Pseudo ${{ steps.ver.outputs.VERSION }}
+
+            ### Install (no Python required)
+
+            **Windows** (PowerShell):
+            ```powershell
+            iwr -useb https://pseudo.wiki/install.ps1 | iex
+            ```
+
+            **macOS / Linux**:
+            ```bash
+            curl -fsSL https://pseudo.wiki/install.sh | bash
+            ```
+
+            ### Manual download
+
+            | Platform | File |
+            |---|---|
+            | 🪟 Windows x64 | `pseudo-windows-x64.exe` |
+            | 🍎 macOS Intel | `pseudo-macos-x64` |
+            | 🍎 macOS Apple Silicon | `pseudo-macos-arm64` |
+            | 🐧 Linux x64 | `pseudo-linux-x64` |
+
+            ### pip (requires Python 3.8+)
+            ```bash
+            pip install "runpseudo==${{ steps.ver.outputs.VERSION }}"
+            ```
+          files: |
+            dist/pseudo-windows-x64.exe
+            dist/pseudo-macos-x64
+            dist/pseudo-macos-arm64
+            dist/pseudo-linux-x64
+          draft: false
+          prerelease: false

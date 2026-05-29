@@ -4,7 +4,7 @@ import Link from "next/link";
 import CodeBlock from "./components/CodeBlock";
 
 export const metadata: Metadata = {
-  title: "Pseudo — Run Pseudocode as a Real Language",
+  title: "Pseudo - Run Pseudocode as a Real Language",
   description:
     "Pseudo is a programming language for writing and running pseudocode. Ideal for coding interviews, algorithm education, and quick idea verification.",
 };
@@ -52,7 +52,7 @@ export default function Home() {
             }}
           >
             Pseudo is a language that sits between English prose and real code.
-            Flexible syntax via <code>.pmap</code> mappings — any style, any
+            Flexible syntax via <code>.pmap</code> mappings - any style, any
             language.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -99,7 +99,7 @@ export default function Home() {
             {
               icon: "🗺",
               title: "PMAP Mappings",
-              desc: "Write in any style — English, Python-like, or your own language. Just define a .pmap file.",
+              desc: "Write in any style - English, Python-like, or your own language. Just define a .pmap file.",
             },
             {
               icon: "🧩",
@@ -114,7 +114,7 @@ export default function Home() {
             {
               icon: "📦",
               title: "DS Built-in",
-              desc: "Stack, Queue, HashMap, MinHeap, Graph — all built in with visual auto-print display.",
+              desc: "Stack, Queue, HashMap, MinHeap, Graph - all built in with visual auto-print display.",
             },
           ].map((f) => (
             <div key={f.title} className="card">
@@ -139,7 +139,7 @@ export default function Home() {
           style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13 }}
         >
           <div style={{ color: "var(--fg-muted)", marginBottom: 8 }}>
-            100% English prose ←—— Pseudo ——→ Real programming language
+            100% English prose ←-- Pseudo --→ Real programming language
           </div>
           <div style={{ color: "var(--fg-muted)" }}>
             "Sort the

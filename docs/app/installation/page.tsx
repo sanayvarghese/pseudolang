@@ -17,7 +17,7 @@ export default function InstallationPage() {
           <span className="page-label">Getting Started</span>
           <h1 className="page-title">Installation</h1>
           <p className="page-desc">
-            Pseudo ships as a <strong>standalone binary</strong> — no Python, no
+            Pseudo ships as a <strong>standalone binary</strong> - no Python, no
             pip, no runtime required. One command and you're running.
           </p>
         </div>
@@ -25,7 +25,7 @@ export default function InstallationPage() {
         <div className="callout info">
           <span className="callout-icon">ℹ</span>
           <div className="callout-body">
-            <strong>Standalone binary</strong> — the <code>pseudo</code>{" "}
+            <strong>Standalone binary</strong> - the <code>pseudo</code>{" "}
             executable bundles everything it needs internally. Python does{" "}
             <em>not</em> need to be installed on your machine.
           </div>
@@ -58,7 +58,7 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
         <div className="callout tip">
           <span className="callout-icon">💡</span>
           <div className="callout-body">
-            <strong>No admin required</strong> — the installer places the binary
+            <strong>No admin required</strong> - the installer places the binary
             in your user folder and updates your <em>user</em> PATH only.
           </div>
         </div>
@@ -171,7 +171,7 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
 
         {/* ── Install via pip (optional) ── */}
         <h2>
-          Alternative — pip{" "}
+          Alternative - pip{" "}
           <span
             style={{ fontWeight: 400, fontSize: 14, color: "var(--fg-muted)" }}
           >
@@ -191,7 +191,7 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
         <p>This creates:</p>
         <ul>
           <li>
-            <code>pseudo.config</code> — local project config (links to your
+            <code>pseudo.config</code> - local project config (links to your
             pmap)
           </li>
           <li>
@@ -240,7 +240,7 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
                 <td>
                   <code>.psu</code>
                 </td>
-                <td>Short alias — identical behavior</td>
+                <td>Short alias - identical behavior</td>
               </tr>
               <tr>
                 <td>
@@ -252,13 +252,13 @@ curl -o install.ps1 https://pseudo.wiki/install.ps1
                 <td>
                   <code>.pseudo</code>
                 </td>
-                <td>❌ Error — common misspelling</td>
+                <td>❌ Error - common misspelling</td>
               </tr>
               <tr>
                 <td>
                   <code>.py</code>
                 </td>
-                <td>❌ Error — that looks like a Python file</td>
+                <td>❌ Error - that looks like a Python file</td>
               </tr>
             </tbody>
           </table>

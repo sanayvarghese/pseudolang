@@ -17,7 +17,7 @@ export default function RulesPage() {
           <span className="page-label">Language Reference</span>
           <h1 className="page-title">Language Rules</h1>
           <p className="page-desc">
-            Variables, types, scope, functions, operators — all the rules in one
+            Variables, types, scope, functions, operators - all the rules in one
             place.
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function RulesPage() {
                 <td>
                   <code>42</code>, <code>3.14</code>, <code>-1</code>
                 </td>
-                <td>Integers and floats — no distinction</td>
+                <td>Integers and floats - no distinction</td>
               </tr>
               <tr>
                 <td>
@@ -156,7 +156,7 @@ export default function RulesPage() {
 
 myFunc()
     print x   # ✓ reads global (fine)
-    x = 20    # creates a NEW local x — does NOT touch global
+    x = 20    # creates a NEW local x - does NOT touch global
 
 myFunc()
 x             # → still 10`}
@@ -192,15 +192,15 @@ recursive fibonacci(n)`}
         <h3>Define vs Call</h3>
         <CodeBlock
           lang="pseudo"
-          code={`sort(arr)           # CALL — if sort is in symbol table, no body follows
-sort(arr)           # DEFINITION — if indented body follows below
-sort([3,1,2])       # always CALL — literal argument`}
+          code={`sort(arr)           # CALL - if sort is in symbol table, no body follows
+sort(arr)           # DEFINITION - if indented body follows below
+sort([3,1,2])       # always CALL - literal argument`}
         />
 
         <h3>Two-pass parsing</h3>
         <p>
           Pass 1 scans all function names before execution. This enables mutual
-          recursion — functions can call each other without forward
+          recursion - functions can call each other without forward
           declarations:
         </p>
         <CodeBlock
@@ -239,13 +239,13 @@ isEven(4)    # → true`}
                   <code>
                     {">"} {"<"} {">="} {"<="} == !=
                   </code>{" "}
-                  — also <code>greater than</code>, <code>equals</code>, etc.
+                  - also <code>greater than</code>, <code>equals</code>, etc.
                 </td>
               </tr>
               <tr>
                 <td>Logical</td>
                 <td>
-                  <code>and or not</code> — also <code>&& || !</code>
+                  <code>and or not</code> - also <code>&& || !</code>
                 </td>
               </tr>
               <tr>
@@ -303,7 +303,7 @@ x = 5   # inline comment
         <h2>Indentation</h2>
         <ul>
           <li>
-            Spaces <em>or</em> tabs — never mixed in the same file
+            Spaces <em>or</em> tabs - never mixed in the same file
           </li>
           <li>Any consistent size: 2, 4, or 8 spaces</li>
           <li>

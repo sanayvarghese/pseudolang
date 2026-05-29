@@ -76,7 +76,7 @@ export default function StepModePage() {
         <CodeBlock lang="text" title="step output" code={STEP_OUT} />
 
         <h3>Swap operation</h3>
-        <CodeBlock lang="text" title="step output — swap" code={STEP_SWAP} />
+        <CodeBlock lang="text" title="step output - swap" code={STEP_SWAP} />
 
         <h2>Controls</h2>
         <div className="table-wrap">
