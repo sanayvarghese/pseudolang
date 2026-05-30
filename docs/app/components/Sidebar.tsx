@@ -21,6 +21,7 @@ import {
   Database,
   Sparkles,
   Activity,
+  Puzzle,
   Menu as MenuIcon,
   X as XIcon,
   ExternalLink,
@@ -33,6 +34,7 @@ const NAV = [
       { href: "/", label: "Introduction", icon: BookOpen },
       { href: "/installation", label: "Installation", icon: Download },
       { href: "/quickstart", label: "Quick Start", icon: Zap },
+      { href: "/vscode-extension", label: "VS Code Extension", icon: Puzzle },
     ],
   },
   {
@@ -139,7 +141,23 @@ export default function Sidebar() {
           }}
         >
           <a
-            href="https://pypi.org/project/pseudo/"
+            href="https://pypi.org/project/runpseudo/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              fontSize: 12,
+              color: "var(--fg-muted)",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              textDecoration: "none",
+              marginBottom: 8,
+            }}
+          >
+            <ExternalLink size={12} /> PyPI Package
+          </a>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=sanayvarghese.pseudo-syntax"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -151,7 +169,7 @@ export default function Sidebar() {
               textDecoration: "none",
             }}
           >
-            <ExternalLink size={12} /> PyPI Package
+            <ExternalLink size={12} /> VS Code Extension
           </a>
         </div>
       </aside>
